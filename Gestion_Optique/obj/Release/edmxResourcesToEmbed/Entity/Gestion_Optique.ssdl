@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gestion_OptiqueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Achat">
+    <Key>
+      <PropertyRef Name="num_achat" />
+    </Key>
+    <Property Name="num_achat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantite" Type="int" />
+    <Property Name="Prix" Type="int" />
+    <Property Name="Mode Paiment" Type="varchar" MaxLength="30" />
+    <Property Name="Date Achat" Type="date" />
+    <Property Name="num_produit" Type="int" />
+    <Property Name="num_fournisseur" Type="int" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="num_admin" />
+    </Key>
+    <Property Name="num_admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="num_client" />
+    </Key>
+    <Property Name="num_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CIN" Type="varchar" MaxLength="30" />
+    <Property Name="Nom" Type="varchar" MaxLength="30" />
+    <Property Name="Prenom" Type="varchar" MaxLength="30" />
+    <Property Name="Date Naissance" Type="date" />
+    <Property Name="Telephone" Type="varchar" MaxLength="30" />
+    <Property Name="Email" Type="varchar" MaxLength="30" />
+    <Property Name="Adresse" Type="varchar" MaxLength="30" />
+    <Property Name="Genre" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Facture">
+    <Key>
+      <PropertyRef Name="num_facture" />
+    </Key>
+    <Property Name="num_facture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date facture" Type="date" />
+    <Property Name="num_vente" Type="int" />
+  </EntityType>
+  <EntityType Name="Fournisseur">
+    <Key>
+      <PropertyRef Name="num_fournisseur" />
+    </Key>
+    <Property Name="num_fournisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomF" Type="varchar" MaxLength="30" />
+    <Property Name="PrenomF" Type="varchar" MaxLength="30" />
+    <Property Name="TelephoneF" Type="varchar" MaxLength="30" />
+    <Property Name="EmailF" Type="varchar" MaxLength="30" />
+    <Property Name="AdresseF" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Mesure">
+    <Key>
+      <PropertyRef Name="num_mesure" />
+    </Key>
+    <Property Name="num_mesure" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date Mesure" Type="date" />
+    <Property Name="mutualise" Type="varchar" MaxLength="30" />
+    <Property Name="Sphere Mesure" Type="varchar" MaxLength="30" />
+    <Property Name="Cylindre Mesure" Type="varchar" MaxLength="30" />
+    <Property Name="Axe" Type="int" />
+    <Property Name="Type Lentille" Type="varchar" MaxLength="30" />
+    <Property Name="Lentille Mesure" Type="varchar" MaxLength="30" />
+    <Property Name="Hauteur" Type="float" />
+    <Property Name="Oeil Mesure" Type="varchar" MaxLength="100" />
+    <Property Name="num_ophtal" Type="int" />
+    <Property Name="num_client" Type="int" />
+  </EntityType>
+  <EntityType Name="Ophtalmologue">
+    <Key>
+      <PropertyRef Name="num_ophtal" />
+    </Key>
+    <Property Name="num_ophtal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="30" />
+    <Property Name="Prenom" Type="varchar" MaxLength="30" />
+    <Property Name="Telephone" Type="varchar" MaxLength="30" />
+    <Property Name="Email" Type="varchar" MaxLength="30" />
+    <Property Name="Adresse" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="num_produit" />
+    </Key>
+    <Property Name="num_produit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="30" />
+    <Property Name="Couleur" Type="varchar" MaxLength="30" />
+    <Property Name="Vision" Type="varchar" MaxLength="30" />
+    <Property Name="Verre" Type="varchar" MaxLength="30" />
+    <Property Name="Traitement" Type="varchar" MaxLength="1000" />
+    <Property Name="Taille" Type="varchar" MaxLength="30" />
+    <Property Name="Marque" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Vente">
+    <Key>
+      <PropertyRef Name="num_vente" />
+    </Key>
+    <Property Name="num_vente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date Vente" Type="date" />
+    <Property Name="Prix" Type="int" />
+    <Property Name="Avence" Type="varchar" MaxLength="30" />
+    <Property Name="Reste" Type="varchar" MaxLength="50" />
+    <Property Name="Mode Paiment" Type="varchar" MaxLength="30" />
+    <Property Name="Commentaire" Type="varchar" MaxLength="30" />
+    <Property Name="num_client" Type="int" />
+    <Property Name="num_produit" Type="int" />
+  </EntityType>
+  <Association Name="FK__Achat__num_fourn__2A4B4B5E">
+    <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Achat" Type="Self.Achat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseur">
+        <PropertyRef Name="num_fournisseur" />
+      </Principal>
+      <Dependent Role="Achat">
+        <PropertyRef Name="num_fournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Achat__num_produ__29572725">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Achat" Type="Self.Achat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="num_produit" />
+      </Principal>
+      <Dependent Role="Achat">
+        <PropertyRef Name="num_produit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facture__num_ven__24927208">
+    <End Role="Vente" Type="Self.Vente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Facture" Type="Self.Facture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vente">
+        <PropertyRef Name="num_vente" />
+      </Principal>
+      <Dependent Role="Facture">
+        <PropertyRef Name="num_vente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mesure__num_opht__3E52440B">
+    <End Role="Ophtalmologue" Type="Self.Ophtalmologue" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Mesure" Type="Self.Mesure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ophtalmologue">
+        <PropertyRef Name="num_ophtal" />
+      </Principal>
+      <Dependent Role="Mesure">
+        <PropertyRef Name="num_ophtal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vente__num_clien__20C1E124">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="num_client" />
+      </Principal>
+      <Dependent Role="Vente">
+        <PropertyRef Name="num_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vente__num_produ__21B6055D">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="num_produit" />
+      </Principal>
+      <Dependent Role="Vente">
+        <PropertyRef Name="num_produit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mesure_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Mesure" Type="Self.Mesure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="num_client" />
+      </Principal>
+      <Dependent Role="Mesure">
+        <PropertyRef Name="num_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AfficherAchat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfficherClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfficherFacture" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfficherFournisseur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfficherMesure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfficherOphtal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfficherProduit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AfficherVente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AjouterAchat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="qte" Type="int" Mode="In" />
+    <Parameter Name="prix" Type="int" Mode="In" />
+    <Parameter Name="modePaiment" Type="varchar" Mode="In" />
+    <Parameter Name="dateAchat" Type="date" Mode="In" />
+    <Parameter Name="num_produit" Type="int" Mode="In" />
+    <Parameter Name="num_fournisseur" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AjouterClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CIN" Type="varchar" Mode="In" />
+    <Parameter Name="Nom" Type="varchar" Mode="In" />
+    <Parameter Name="Prenom" Type="varchar" Mode="In" />
+    <Parameter Name="DateNaissance" Type="date" Mode="In" />
+    <Parameter Name="Telephone" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Adresse" Type="varchar" Mode="In" />
+    <Parameter Name="Genre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AjouterFacture" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dateFacture" Type="date" Mode="In" />
+    <Parameter Name="num_vente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AjouterFournisseur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nom" Type="varchar" Mode="In" />
+    <Parameter Name="Prenom" Type="varchar" Mode="In" />
+    <Parameter Name="Telephone" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Adresse" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AjouterMesure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date_mesure" Type="date" Mode="In" />
+    <Parameter Name="mutualise" Type="varchar" Mode="In" />
+    <Parameter Name="sphere_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="cylindre_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="axe" Type="int" Mode="In" />
+    <Parameter Name="type_lentille" Type="varchar" Mode="In" />
+    <Parameter Name="lentille_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="hauteur" Type="float" Mode="In" />
+    <Parameter Name="oeil_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="num_ophtal" Type="int" Mode="In" />
+    <Parameter Name="num_client" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AjouterOphtal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nom" Type="varchar" Mode="In" />
+    <Parameter Name="Prenom" Type="varchar" Mode="In" />
+    <Parameter Name="Telephone" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Adresse" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AjouterProduit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="couleur" Type="varchar" Mode="In" />
+    <Parameter Name="vision" Type="varchar" Mode="In" />
+    <Parameter Name="verre" Type="varchar" Mode="In" />
+    <Parameter Name="traitement" Type="varchar" Mode="In" />
+    <Parameter Name="taille" Type="varchar" Mode="In" />
+    <Parameter Name="marque" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AjouteVente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DateVente" Type="date" Mode="In" />
+    <Parameter Name="Prix" Type="int" Mode="In" />
+    <Parameter Name="Avence" Type="int" Mode="In" />
+    <Parameter Name="reste" Type="varchar" Mode="In" />
+    <Parameter Name="ModePaiment" Type="varchar" Mode="In" />
+    <Parameter Name="Commentaire" Type="varchar" Mode="In" />
+    <Parameter Name="num_client" Type="int" Mode="In" />
+    <Parameter Name="num_produit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="ModifierAchat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_achat" Type="int" Mode="In" />
+    <Parameter Name="qte" Type="int" Mode="In" />
+    <Parameter Name="prix" Type="int" Mode="In" />
+    <Parameter Name="modePaiment" Type="varchar" Mode="In" />
+    <Parameter Name="dateAchat" Type="date" Mode="In" />
+    <Parameter Name="num_produit" Type="int" Mode="In" />
+    <Parameter Name="num_fournisseur" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ModifierClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="numclient" Type="int" Mode="In" />
+    <Parameter Name="CIN" Type="varchar" Mode="In" />
+    <Parameter Name="Nom" Type="varchar" Mode="In" />
+    <Parameter Name="Prenom" Type="varchar" Mode="In" />
+    <Parameter Name="DateNaissance" Type="date" Mode="In" />
+    <Parameter Name="Telephone" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Adresse" Type="varchar" Mode="In" />
+    <Parameter Name="Genre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModifierFacture" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_facture" Type="int" Mode="In" />
+    <Parameter Name="dateFacture" Type="date" Mode="In" />
+    <Parameter Name="num_vente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ModifierFournisseur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_fournisseur" Type="int" Mode="In" />
+    <Parameter Name="Nom" Type="varchar" Mode="In" />
+    <Parameter Name="Prenom" Type="varchar" Mode="In" />
+    <Parameter Name="Telephone" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Adresse" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModifierMesure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date_mesure" Type="date" Mode="In" />
+    <Parameter Name="mutualise" Type="varchar" Mode="In" />
+    <Parameter Name="sphere_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="cylindre_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="axe" Type="int" Mode="In" />
+    <Parameter Name="type_lentille" Type="varchar" Mode="In" />
+    <Parameter Name="lentille_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="hauteur" Type="float" Mode="In" />
+    <Parameter Name="oeil_mesure" Type="varchar" Mode="In" />
+    <Parameter Name="num_ophtal" Type="int" Mode="In" />
+    <Parameter Name="num_client" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ModifierOphtal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_ophtal" Type="int" Mode="In" />
+    <Parameter Name="Nom" Type="varchar" Mode="In" />
+    <Parameter Name="Prenom" Type="varchar" Mode="In" />
+    <Parameter Name="Telephone" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Adresse" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModifierProduit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_produit" Type="int" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="couleur" Type="varchar" Mode="In" />
+    <Parameter Name="vision" Type="varchar" Mode="In" />
+    <Parameter Name="verre" Type="varchar" Mode="In" />
+    <Parameter Name="traitement" Type="varchar" Mode="In" />
+    <Parameter Name="taille" Type="varchar" Mode="In" />
+    <Parameter Name="marque" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ModifierVente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_vente" Type="int" Mode="In" />
+    <Parameter Name="DateVente" Type="date" Mode="In" />
+    <Parameter Name="Prix" Type="int" Mode="In" />
+    <Parameter Name="Avence" Type="int" Mode="In" />
+    <Parameter Name="reste" Type="varchar" Mode="In" />
+    <Parameter Name="ModePaiment" Type="varchar" Mode="In" />
+    <Parameter Name="Commentaire" Type="varchar" Mode="In" />
+    <Parameter Name="num_client" Type="int" Mode="In" />
+    <Parameter Name="num_produit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RechercherAchatNumA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_achat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RechercherAchatNumF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_fournisseur" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RechercherClientCIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CIN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RechercherClientNom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RechercherFactureDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dateFacture" Type="date" Mode="In" />
+  </Function>
+  <Function Name="RechercherFactureNum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_facture" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RechercherForunisseurNom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nomF" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RechercherMesureDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date_mesure" Type="date" Mode="In" />
+  </Function>
+  <Function Name="RechercherMesureNum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_mesure" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rechercherOphtalAdresse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="adresse" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RechercherOphtalNom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RechercherProduitNum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_produit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RechercherProduitType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="type" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RechercherVenteDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dateVente" Type="date" Mode="In" />
+  </Function>
+  <Function Name="RechercherVenteNomCli" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom_cli" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SupprimerAchat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_achat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SupprimerClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CIN" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SupprimerFacture" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_facture" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SupprimerFournisseur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SupprimerMesure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_client" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SupprimerOphtal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nom" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SupprimerProduit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_produit" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SupprimerVente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_vente" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Gestion_OptiqueModelStoreContainer">
+    <EntitySet Name="Achat" EntityType="Self.Achat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Facture" EntityType="Self.Facture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mesure" EntityType="Self.Mesure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ophtalmologue" EntityType="Self.Ophtalmologue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vente" EntityType="Self.Vente" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Achat__num_fourn__2A4B4B5E" Association="Self.FK__Achat__num_fourn__2A4B4B5E">
+      <End Role="Fournisseur" EntitySet="Fournisseur" />
+      <End Role="Achat" EntitySet="Achat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Achat__num_produ__29572725" Association="Self.FK__Achat__num_produ__29572725">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Achat" EntitySet="Achat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facture__num_ven__24927208" Association="Self.FK__Facture__num_ven__24927208">
+      <End Role="Vente" EntitySet="Vente" />
+      <End Role="Facture" EntitySet="Facture" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mesure__num_opht__3E52440B" Association="Self.FK__Mesure__num_opht__3E52440B">
+      <End Role="Ophtalmologue" EntitySet="Ophtalmologue" />
+      <End Role="Mesure" EntitySet="Mesure" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vente__num_clien__20C1E124" Association="Self.FK__Vente__num_clien__20C1E124">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Vente" EntitySet="Vente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vente__num_produ__21B6055D" Association="Self.FK__Vente__num_produ__21B6055D">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Vente" EntitySet="Vente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mesure_Client" Association="Self.FK_Mesure_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Mesure" EntitySet="Mesure" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1972
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_Optique", "Gestion_Optique\Gestion_Optique.csproj", "{F5679F8B-8AFE-424E-B3D0-0FC1D1168753}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Gestion Optique", "Gestion Optique\Gestion Optique.vdproj", "{B1CFAC98-E414-491C-ABB3-915E21E89871}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5679F8B-8AFE-424E-B3D0-0FC1D1168753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5679F8B-8AFE-424E-B3D0-0FC1D1168753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5679F8B-8AFE-424E-B3D0-0FC1D1168753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5679F8B-8AFE-424E-B3D0-0FC1D1168753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1CFAC98-E414-491C-ABB3-915E21E89871}.Debug|Any CPU.ActiveCfg = Debug
+		{B1CFAC98-E414-491C-ABB3-915E21E89871}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E2F4FA8-2EE9-4794-A5DC-2279DBDB3C0D}
+	EndGlobalSection
+EndGlobal

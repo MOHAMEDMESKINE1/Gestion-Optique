@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Gestion_OptiqueModelStoreContainer" CdmEntityContainer="Gestion_OptiqueEntities7">
+    <EntitySetMapping Name="Achat">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Achat">
+        <MappingFragment StoreEntitySet="Achat">
+          <ScalarProperty Name="num_achat" ColumnName="num_achat" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Date_Achat" ColumnName="Date Achat" />
+          <ScalarProperty Name="num_produit" ColumnName="num_produit" />
+          <ScalarProperty Name="num_fournisseur" ColumnName="num_fournisseur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="num_admin" ColumnName="num_admin" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="num_client" ColumnName="num_client" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Date_Naissance" ColumnName="Date Naissance" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facture">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Facture">
+        <MappingFragment StoreEntitySet="Facture">
+          <ScalarProperty Name="num_facture" ColumnName="num_facture" />
+          <ScalarProperty Name="Date_facture" ColumnName="Date facture" />
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fournisseur">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Fournisseur">
+        <MappingFragment StoreEntitySet="Fournisseur">
+          <ScalarProperty Name="num_fournisseur" ColumnName="num_fournisseur" />
+          <ScalarProperty Name="NomF" ColumnName="NomF" />
+          <ScalarProperty Name="PrenomF" ColumnName="PrenomF" />
+          <ScalarProperty Name="TelephoneF" ColumnName="TelephoneF" />
+          <ScalarProperty Name="EmailF" ColumnName="EmailF" />
+          <ScalarProperty Name="AdresseF" ColumnName="AdresseF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mesure">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Mesure">
+        <MappingFragment StoreEntitySet="Mesure">
+          <ScalarProperty Name="num_mesure" ColumnName="num_mesure" />
+          <ScalarProperty Name="Date_Mesure" ColumnName="Date Mesure" />
+          <ScalarProperty Name="mutualise" ColumnName="mutualise" />
+          <ScalarProperty Name="Sphere_Mesure" ColumnName="Sphere Mesure" />
+          <ScalarProperty Name="Cylindre_Mesure" ColumnName="Cylindre Mesure" />
+          <ScalarProperty Name="Axe" ColumnName="Axe" />
+          <ScalarProperty Name="Type_Lentille" ColumnName="Type Lentille" />
+          <ScalarProperty Name="Lentille_Mesure" ColumnName="Lentille Mesure" />
+          <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+          <ScalarProperty Name="Oeil_Mesure" ColumnName="Oeil Mesure" />
+          <ScalarProperty Name="num_ophtal" ColumnName="num_ophtal" />
+          <ScalarProperty Name="num_client" ColumnName="num_client" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ophtalmologue">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Ophtalmologue">
+        <MappingFragment StoreEntitySet="Ophtalmologue">
+          <ScalarProperty Name="num_ophtal" ColumnName="num_ophtal" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produit">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Produit">
+        <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="num_produit" ColumnName="num_produit" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Couleur" ColumnName="Couleur" />
+          <ScalarProperty Name="Vision" ColumnName="Vision" />
+          <ScalarProperty Name="Verre" ColumnName="Verre" />
+          <ScalarProperty Name="Traitement" ColumnName="Traitement" />
+          <ScalarProperty Name="Taille" ColumnName="Taille" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vente">
+      <EntityTypeMapping TypeName="Gestion_OptiqueModel.Vente">
+        <MappingFragment StoreEntitySet="Vente">
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+          <ScalarProperty Name="Date_Vente" ColumnName="Date Vente" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Avence" ColumnName="Avence" />
+          <ScalarProperty Name="Reste" ColumnName="Reste" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+          <ScalarProperty Name="num_client" ColumnName="num_client" />
+          <ScalarProperty Name="num_produit" ColumnName="num_produit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AfficherAchat" FunctionName="Gestion_OptiqueModel.Store.AfficherAchat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherAchat_Result">
+          <ScalarProperty Name="num_achat" ColumnName="num_achat" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Date_Achat" ColumnName="Date Achat" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="NomF" ColumnName="NomF" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfficherClient" FunctionName="Gestion_OptiqueModel.Store.AfficherClient">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherClient_Result">
+          <ScalarProperty Name="num_client" ColumnName="num_client" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Date_Naissance" ColumnName="Date Naissance" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfficherFacture" FunctionName="Gestion_OptiqueModel.Store.AfficherFacture">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherFacture_Result">
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+          <ScalarProperty Name="num_facture" ColumnName="num_facture" />
+          <ScalarProperty Name="Date_facture" ColumnName="Date facture" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Avence" ColumnName="Avence" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfficherFournisseur" FunctionName="Gestion_OptiqueModel.Store.AfficherFournisseur">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherFournisseur_Result">
+          <ScalarProperty Name="num_fournisseur" ColumnName="num_fournisseur" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfficherMesure" FunctionName="Gestion_OptiqueModel.Store.AfficherMesure">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherMesure_Result">
+          <ScalarProperty Name="num_mesure" ColumnName="num_mesure" />
+          <ScalarProperty Name="Date_Mesure" ColumnName="Date Mesure" />
+          <ScalarProperty Name="mutualise" ColumnName="mutualise" />
+          <ScalarProperty Name="Sphere_Mesure" ColumnName="Sphere Mesure" />
+          <ScalarProperty Name="Cylindre_Mesure" ColumnName="Cylindre Mesure" />
+          <ScalarProperty Name="Axe" ColumnName="Axe" />
+          <ScalarProperty Name="Type_Lentille" ColumnName="Type Lentille" />
+          <ScalarProperty Name="Lentille_Mesure" ColumnName="Lentille Mesure" />
+          <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+          <ScalarProperty Name="Oeil_Mesuré" ColumnName="Oeil Mesuré" />
+          <ScalarProperty Name="Ophtalmologue" ColumnName="Ophtalmologue" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfficherOphtal" FunctionName="Gestion_OptiqueModel.Store.AfficherOphtal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherOphtal_Result">
+          <ScalarProperty Name="num_ophtal" ColumnName="num_ophtal" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfficherProduit" FunctionName="Gestion_OptiqueModel.Store.AfficherProduit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherProduit_Result">
+          <ScalarProperty Name="num_produit" ColumnName="num_produit" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Couleur" ColumnName="Couleur" />
+          <ScalarProperty Name="Vision" ColumnName="Vision" />
+          <ScalarProperty Name="Verre" ColumnName="Verre" />
+          <ScalarProperty Name="Traitement" ColumnName="Traitement" />
+          <ScalarProperty Name="Taille" ColumnName="Taille" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AfficherVente" FunctionName="Gestion_OptiqueModel.Store.AfficherVente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.AfficherVente_Result">
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+          <ScalarProperty Name="Date_Vente" ColumnName="Date Vente" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Avence" ColumnName="Avence" />
+          <ScalarProperty Name="reste" ColumnName="reste" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AjouterAchat" FunctionName="Gestion_OptiqueModel.Store.AjouterAchat" />
+    <FunctionImportMapping FunctionImportName="AjouterClient" FunctionName="Gestion_OptiqueModel.Store.AjouterClient" />
+    <FunctionImportMapping FunctionImportName="AjouterFacture" FunctionName="Gestion_OptiqueModel.Store.AjouterFacture" />
+    <FunctionImportMapping FunctionImportName="AjouterFournisseur" FunctionName="Gestion_OptiqueModel.Store.AjouterFournisseur" />
+    <FunctionImportMapping FunctionImportName="AjouterMesure" FunctionName="Gestion_OptiqueModel.Store.AjouterMesure" />
+    <FunctionImportMapping FunctionImportName="AjouterOphtal" FunctionName="Gestion_OptiqueModel.Store.AjouterOphtal" />
+    <FunctionImportMapping FunctionImportName="AjouterProduit" FunctionName="Gestion_OptiqueModel.Store.AjouterProduit" />
+    <FunctionImportMapping FunctionImportName="AjouteVente" FunctionName="Gestion_OptiqueModel.Store.AjouteVente" />
+    <FunctionImportMapping FunctionImportName="ModifierAchat" FunctionName="Gestion_OptiqueModel.Store.ModifierAchat" />
+    <FunctionImportMapping FunctionImportName="ModifierClient" FunctionName="Gestion_OptiqueModel.Store.ModifierClient" />
+    <FunctionImportMapping FunctionImportName="ModifierFacture" FunctionName="Gestion_OptiqueModel.Store.ModifierFacture" />
+    <FunctionImportMapping FunctionImportName="ModifierFournisseur" FunctionName="Gestion_OptiqueModel.Store.ModifierFournisseur" />
+    <FunctionImportMapping FunctionImportName="ModifierMesure" FunctionName="Gestion_OptiqueModel.Store.ModifierMesure" />
+    <FunctionImportMapping FunctionImportName="ModifierOphtal" FunctionName="Gestion_OptiqueModel.Store.ModifierOphtal" />
+    <FunctionImportMapping FunctionImportName="ModifierProduit" FunctionName="Gestion_OptiqueModel.Store.ModifierProduit" />
+    <FunctionImportMapping FunctionImportName="ModifierVente" FunctionName="Gestion_OptiqueModel.Store.ModifierVente" />
+    <FunctionImportMapping FunctionImportName="RechercherAchatNumA" FunctionName="Gestion_OptiqueModel.Store.RechercherAchatNumA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherAchatNumA_Result">
+          <ScalarProperty Name="num_achat" ColumnName="num_achat" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Date_Achat" ColumnName="Date Achat" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="NomF" ColumnName="NomF" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherAchatNumF" FunctionName="Gestion_OptiqueModel.Store.RechercherAchatNumF">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherAchatNumF_Result">
+          <ScalarProperty Name="num_achat" ColumnName="num_achat" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Date_Achat" ColumnName="Date Achat" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="NomF" ColumnName="NomF" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherClientCIN" FunctionName="Gestion_OptiqueModel.Store.RechercherClientCIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherClientCIN_Result">
+          <ScalarProperty Name="num_client" ColumnName="num_client" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Date_Naissance" ColumnName="Date Naissance" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherClientNom" FunctionName="Gestion_OptiqueModel.Store.RechercherClientNom">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherClientNom_Result">
+          <ScalarProperty Name="num_client" ColumnName="num_client" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Date_Naissance" ColumnName="Date Naissance" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherFactureDate" FunctionName="Gestion_OptiqueModel.Store.RechercherFactureDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherFactureDate_Result">
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+          <ScalarProperty Name="num_facture" ColumnName="num_facture" />
+          <ScalarProperty Name="Date_facture" ColumnName="Date facture" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Avence" ColumnName="Avence" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherFactureNum" FunctionName="Gestion_OptiqueModel.Store.RechercherFactureNum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherFactureNum_Result">
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+          <ScalarProperty Name="num_facture" ColumnName="num_facture" />
+          <ScalarProperty Name="Date_facture" ColumnName="Date facture" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Avence" ColumnName="Avence" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherForunisseurNom" FunctionName="Gestion_OptiqueModel.Store.RechercherForunisseurNom">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherForunisseurNom_Result">
+          <ScalarProperty Name="num_fournisseur" ColumnName="num_fournisseur" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherMesureDate" FunctionName="Gestion_OptiqueModel.Store.RechercherMesureDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherMesureDate_Result">
+          <ScalarProperty Name="num_mesure" ColumnName="num_mesure" />
+          <ScalarProperty Name="Date_Mesure" ColumnName="Date Mesure" />
+          <ScalarProperty Name="mutualise" ColumnName="mutualise" />
+          <ScalarProperty Name="Sphere_Mesure" ColumnName="Sphere Mesure" />
+          <ScalarProperty Name="Cylindre_Mesure" ColumnName="Cylindre Mesure" />
+          <ScalarProperty Name="Axe" ColumnName="Axe" />
+          <ScalarProperty Name="Type_Lentille" ColumnName="Type Lentille" />
+          <ScalarProperty Name="Lentille_Mesure" ColumnName="Lentille Mesure" />
+          <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+          <ScalarProperty Name="Oeil_Mesuré" ColumnName="Oeil Mesuré" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherMesureNum" FunctionName="Gestion_OptiqueModel.Store.RechercherMesureNum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherMesureNum_Result">
+          <ScalarProperty Name="num_mesure" ColumnName="num_mesure" />
+          <ScalarProperty Name="Date_Mesure" ColumnName="Date Mesure" />
+          <ScalarProperty Name="mutualise" ColumnName="mutualise" />
+          <ScalarProperty Name="Sphere_Mesure" ColumnName="Sphere Mesure" />
+          <ScalarProperty Name="Cylindre_Mesure" ColumnName="Cylindre Mesure" />
+          <ScalarProperty Name="Axe" ColumnName="Axe" />
+          <ScalarProperty Name="Type_Lentille" ColumnName="Type Lentille" />
+          <ScalarProperty Name="Lentille_Mesure" ColumnName="Lentille Mesure" />
+          <ScalarProperty Name="Hauteur" ColumnName="Hauteur" />
+          <ScalarProperty Name="Oeil_Mesuré" ColumnName="Oeil Mesuré" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="rechercherOphtalAdresse" FunctionName="Gestion_OptiqueModel.Store.rechercherOphtalAdresse">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.rechercherOphtalAdresse_Result">
+          <ScalarProperty Name="num_ophtal" ColumnName="num_ophtal" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherOphtalNom" FunctionName="Gestion_OptiqueModel.Store.RechercherOphtalNom">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherOphtalNom_Result">
+          <ScalarProperty Name="num_ophtal" ColumnName="num_ophtal" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherProduitNum" FunctionName="Gestion_OptiqueModel.Store.RechercherProduitNum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherProduitNum_Result">
+          <ScalarProperty Name="num_produit" ColumnName="num_produit" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Couleur" ColumnName="Couleur" />
+          <ScalarProperty Name="Vision" ColumnName="Vision" />
+          <ScalarProperty Name="Verre" ColumnName="Verre" />
+          <ScalarProperty Name="Traitement" ColumnName="Traitement" />
+          <ScalarProperty Name="Taille" ColumnName="Taille" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherProduitType" FunctionName="Gestion_OptiqueModel.Store.RechercherProduitType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherProduitType_Result">
+          <ScalarProperty Name="num_produit" ColumnName="num_produit" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Couleur" ColumnName="Couleur" />
+          <ScalarProperty Name="Vision" ColumnName="Vision" />
+          <ScalarProperty Name="Verre" ColumnName="Verre" />
+          <ScalarProperty Name="Traitement" ColumnName="Traitement" />
+          <ScalarProperty Name="Taille" ColumnName="Taille" />
+          <ScalarProperty Name="Marque" ColumnName="Marque" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherVenteDate" FunctionName="Gestion_OptiqueModel.Store.RechercherVenteDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherVenteDate_Result">
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+          <ScalarProperty Name="Date_Vente" ColumnName="Date Vente" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Avence" ColumnName="Avence" />
+          <ScalarProperty Name="reste" ColumnName="reste" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RechercherVenteNomCli" FunctionName="Gestion_OptiqueModel.Store.RechercherVenteNomCli">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.RechercherVenteNomCli_Result">
+          <ScalarProperty Name="num_vente" ColumnName="num_vente" />
+          <ScalarProperty Name="Date_Vente" ColumnName="Date Vente" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Avence" ColumnName="Avence" />
+          <ScalarProperty Name="reste" ColumnName="reste" />
+          <ScalarProperty Name="Mode_Paiment" ColumnName="Mode Paiment" />
+          <ScalarProperty Name="Commentaire" ColumnName="Commentaire" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Gestion_OptiqueModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Gestion_OptiqueModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Gestion_OptiqueModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Gestion_OptiqueModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Gestion_OptiqueModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Gestion_OptiqueModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Gestion_OptiqueModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Gestion_OptiqueModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="SupprimerAchat" FunctionName="Gestion_OptiqueModel.Store.SupprimerAchat" />
+    <FunctionImportMapping FunctionImportName="SupprimerClient" FunctionName="Gestion_OptiqueModel.Store.SupprimerClient" />
+    <FunctionImportMapping FunctionImportName="SupprimerFacture" FunctionName="Gestion_OptiqueModel.Store.SupprimerFacture" />
+    <FunctionImportMapping FunctionImportName="SupprimerFournisseur" FunctionName="Gestion_OptiqueModel.Store.SupprimerFournisseur" />
+    <FunctionImportMapping FunctionImportName="SupprimerMesure" FunctionName="Gestion_OptiqueModel.Store.SupprimerMesure" />
+    <FunctionImportMapping FunctionImportName="SupprimerOphtal" FunctionName="Gestion_OptiqueModel.Store.SupprimerOphtal" />
+    <FunctionImportMapping FunctionImportName="SupprimerProduit" FunctionName="Gestion_OptiqueModel.Store.SupprimerProduit" />
+    <FunctionImportMapping FunctionImportName="SupprimerVente" FunctionName="Gestion_OptiqueModel.Store.SupprimerVente" />
+  </EntityContainerMapping>
+</Mapping>

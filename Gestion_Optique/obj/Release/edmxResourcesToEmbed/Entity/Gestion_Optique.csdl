@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gestion_OptiqueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Achat">
+    <Key>
+      <PropertyRef Name="num_achat" />
+    </Key>
+    <Property Name="num_achat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantite" Type="Int32" />
+    <Property Name="Prix" Type="Int32" />
+    <Property Name="Mode_Paiment" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Achat" Type="DateTime" Precision="0" />
+    <Property Name="num_produit" Type="Int32" />
+    <Property Name="num_fournisseur" Type="Int32" />
+    <NavigationProperty Name="Fournisseur" Relationship="Self.FK__Achat__num_fourn__2A4B4B5E" FromRole="Achat" ToRole="Fournisseur" />
+    <NavigationProperty Name="Produit" Relationship="Self.FK__Achat__num_produ__29572725" FromRole="Achat" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="num_admin" />
+    </Key>
+    <Property Name="num_admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="num_client" />
+    </Key>
+    <Property Name="num_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Prenom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Naissance" Type="DateTime" Precision="0" />
+    <Property Name="Telephone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Genre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Vente" Relationship="Self.FK__Vente__num_clien__20C1E124" FromRole="Client" ToRole="Vente" />
+    <NavigationProperty Name="Mesure" Relationship="Self.FK_Mesure_Client" FromRole="Client" ToRole="Mesure" />
+  </EntityType>
+  <EntityType Name="Facture">
+    <Key>
+      <PropertyRef Name="num_facture" />
+    </Key>
+    <Property Name="num_facture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_facture" Type="DateTime" Precision="0" />
+    <Property Name="num_vente" Type="Int32" />
+    <NavigationProperty Name="Vente" Relationship="Self.FK__Facture__num_ven__24927208" FromRole="Facture" ToRole="Vente" />
+  </EntityType>
+  <EntityType Name="Fournisseur">
+    <Key>
+      <PropertyRef Name="num_fournisseur" />
+    </Key>
+    <Property Name="num_fournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PrenomF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TelephoneF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EmailF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AdresseF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Achat" Relationship="Self.FK__Achat__num_fourn__2A4B4B5E" FromRole="Fournisseur" ToRole="Achat" />
+  </EntityType>
+  <EntityType Name="Mesure">
+    <Key>
+      <PropertyRef Name="num_mesure" />
+    </Key>
+    <Property Name="num_mesure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_Mesure" Type="DateTime" Precision="0" />
+    <Property Name="mutualise" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Sphere_Mesure" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cylindre_Mesure" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Axe" Type="Int32" />
+    <Property Name="Type_Lentille" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Lentille_Mesure" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Hauteur" Type="Double" />
+    <Property Name="Oeil_Mesure" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="num_ophtal" Type="Int32" />
+    <Property Name="num_client" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Mesure_Client" FromRole="Mesure" ToRole="Client" />
+    <NavigationProperty Name="Ophtalmologue" Relationship="Self.FK__Mesure__num_opht__3E52440B" FromRole="Mesure" ToRole="Ophtalmologue" />
+  </EntityType>
+  <EntityType Name="Ophtalmologue">
+    <Key>
+      <PropertyRef Name="num_ophtal" />
+    </Key>
+    <Property Name="num_ophtal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Prenom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mesure" Relationship="Self.FK__Mesure__num_opht__3E52440B" FromRole="Ophtalmologue" ToRole="Mesure" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="num_produit" />
+    </Key>
+    <Property Name="num_produit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Couleur" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Vision" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Verre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Traitement" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Taille" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Marque" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Achat" Relationship="Self.FK__Achat__num_produ__29572725" FromRole="Produit" ToRole="Achat" />
+    <NavigationProperty Name="Vente" Relationship="Self.FK__Vente__num_produ__21B6055D" FromRole="Produit" ToRole="Vente" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Vente">
+    <Key>
+      <PropertyRef Name="num_vente" />
+    </Key>
+    <Property Name="num_vente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_Vente" Type="DateTime" Precision="0" />
+    <Property Name="Prix" Type="Int32" />
+    <Property Name="Avence" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Reste" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mode_Paiment" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Commentaire" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="num_client" Type="Int32" />
+    <Property Name="num_produit" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Vente__num_clien__20C1E124" FromRole="Vente" ToRole="Client" />
+    <NavigationProperty Name="Facture" Relationship="Self.FK__Facture__num_ven__24927208" FromRole="Vente" ToRole="Facture" />
+    <NavigationProperty Name="Produit" Relationship="Self.FK__Vente__num_produ__21B6055D" FromRole="Vente" ToRole="Produit" />
+  </EntityType>
+  <Association Name="FK__Achat__num_fourn__2A4B4B5E">
+    <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Achat" Type="Self.Achat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseur">
+        <PropertyRef Name="num_fournisseur" />
+      </Principal>
+      <Dependent Role="Achat">
+        <PropertyRef Name="num_fournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Achat__num_produ__29572725">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Achat" Type="Self.Achat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="num_produit" />
+      </Principal>
+      <Dependent Role="Achat">
+        <PropertyRef Name="num_produit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vente__num_clien__20C1E124">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="num_client" />
+      </Principal>
+      <Dependent Role="Vente">
+        <PropertyRef Name="num_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mesure_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Mesure" Type="Self.Mesure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="num_client" />
+      </Principal>
+      <Dependent Role="Mesure">
+        <PropertyRef Name="num_client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Facture__num_ven__24927208">
+    <End Role="Vente" Type="Self.Vente" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Facture" Type="Self.Facture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vente">
+        <PropertyRef Name="num_vente" />
+      </Principal>
+      <Dependent Role="Facture">
+        <PropertyRef Name="num_vente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mesure__num_opht__3E52440B">
+    <End Role="Ophtalmologue" Type="Self.Ophtalmologue" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Mesure" Type="Self.Mesure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ophtalmologue">
+        <PropertyRef Name="num_ophtal" />
+      </Principal>
+      <Dependent Role="Mesure">
+        <PropertyRef Name="num_ophtal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vente__num_produ__21B6055D">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vente" Type="Self.Vente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="num_produit" />
+      </Principal>
+      <Dependent Role="Vente">
+        <PropertyRef Name="num_produit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Gestion_OptiqueEntities7" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Achat" EntityType="Self.Achat" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Facture" EntityType="Self.Facture" />
+    <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" />
+    <EntitySet Name="Mesure" EntityType="Self.Mesure" />
+    <EntitySet Name="Ophtalmologue" EntityType="Self.Ophtalmologue" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Vente" EntityType="Self.Vente" />
+    <AssociationSet Name="FK__Achat__num_fourn__2A4B4B5E" Association="Self.FK__Achat__num_fourn__2A4B4B5E">
+      <End Role="Fournisseur" EntitySet="Fournisseur" />
+      <End Role="Achat" EntitySet="Achat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Achat__num_produ__29572725" Association="Self.FK__Achat__num_produ__29572725">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Achat" EntitySet="Achat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vente__num_clien__20C1E124" Association="Self.FK__Vente__num_clien__20C1E124">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Vente" EntitySet="Vente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mesure_Client" Association="Self.FK_Mesure_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Mesure" EntitySet="Mesure" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Facture__num_ven__24927208" Association="Self.FK__Facture__num_ven__24927208">
+      <End Role="Vente" EntitySet="Vente" />
+      <End Role="Facture" EntitySet="Facture" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mesure__num_opht__3E52440B" Association="Self.FK__Mesure__num_opht__3E52440B">
+      <End Role="Ophtalmologue" EntitySet="Ophtalmologue" />
+      <End Role="Mesure" EntitySet="Mesure" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vente__num_produ__21B6055D" Association="Self.FK__Vente__num_produ__21B6055D">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Vente" EntitySet="Vente" />
+    </AssociationSet>
+    <FunctionImport Name="AfficherAchat" ReturnType="Collection(Gestion_OptiqueModel.AfficherAchat_Result)" />
+    <FunctionImport Name="AfficherClient" ReturnType="Collection(Gestion_OptiqueModel.AfficherClient_Result)" />
+    <FunctionImport Name="AfficherFacture" ReturnType="Collection(Gestion_OptiqueModel.AfficherFacture_Result)" />
+    <FunctionImport Name="AfficherFournisseur" ReturnType="Collection(Gestion_OptiqueModel.AfficherFournisseur_Result)" />
+    <FunctionImport Name="AfficherMesure" ReturnType="Collection(Gestion_OptiqueModel.AfficherMesure_Result)" />
+    <FunctionImport Name="AfficherOphtal" ReturnType="Collection(Gestion_OptiqueModel.AfficherOphtal_Result)" />
+    <FunctionImport Name="AfficherProduit" ReturnType="Collection(Gestion_OptiqueModel.AfficherProduit_Result)" />
+    <FunctionImport Name="AfficherVente" ReturnType="Collection(Gestion_OptiqueModel.AfficherVente_Result)" />
+    <FunctionImport Name="AjouterAchat">
+      <Parameter Name="qte" Mode="In" Type="Int32" />
+      <Parameter Name="prix" Mode="In" Type="Int32" />
+      <Parameter Name="modePaiment" Mode="In" Type="String" />
+      <Parameter Name="dateAchat" Mode="In" Type="DateTime" />
+      <Parameter Name="num_produit" Mode="In" Type="Int32" />
+      <Parameter Name="num_fournisseur" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AjouterClient">
+      <Parameter Name="CIN" Mode="In" Type="String" />
+      <Parameter Name="Nom" Mode="In" Type="String" />
+      <Parameter Name="Prenom" Mode="In" Type="String" />
+      <Parameter Name="DateNaissance" Mode="In" Type="DateTime" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Adresse" Mode="In" Type="String" />
+      <Parameter Name="Genre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AjouterFacture">
+      <Parameter Name="dateFacture" Mode="In" Type="DateTime" />
+      <Parameter Name="num_vente" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AjouterFournisseur">
+      <Parameter Name="Nom" Mode="In" Type="String" />
+      <Parameter Name="Prenom" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Adresse" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AjouterMesure">
+      <Parameter Name="date_mesure" Mode="In" Type="DateTime" />
+      <Parameter Name="mutualise" Mode="In" Type="String" />
+      <Parameter Name="sphere_mesure" Mode="In" Type="String" />
+      <Parameter Name="cylindre_mesure" Mode="In" Type="String" />
+      <Parameter Name="axe" Mode="In" Type="Int32" />
+      <Parameter Name="type_lentille" Mode="In" Type="String" />
+      <Parameter Name="lentille_mesure" Mode="In" Type="String" />
+      <Parameter Name="hauteur" Mode="In" Type="Double" />
+      <Parameter Name="oeil_mesure" Mode="In" Type="String" />
+      <Parameter Name="num_ophtal" Mode="In" Type="Int32" />
+      <Parameter Name="num_client" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AjouterOphtal">
+      <Parameter Name="Nom" Mode="In" Type="String" />
+      <Parameter Name="Prenom" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Adresse" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AjouterProduit">
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="couleur" Mode="In" Type="String" />
+      <Parameter Name="vision" Mode="In" Type="String" />
+      <Parameter Name="verre" Mode="In" Type="String" />
+      <Parameter Name="traitement" Mode="In" Type="String" />
+      <Parameter Name="taille" Mode="In" Type="String" />
+      <Parameter Name="marque" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AjouteVente">
+      <Parameter Name="DateVente" Mode="In" Type="DateTime" />
+      <Parameter Name="Prix" Mode="In" Type="Int32" />
+      <Parameter Name="Avence" Mode="In" Type="Int32" />
+      <Parameter Name="reste" Mode="In" Type="String" />
+      <Parameter Name="ModePaiment" Mode="In" Type="String" />
+      <Parameter Name="Commentaire" Mode="In" Type="String" />
+      <Parameter Name="num_client" Mode="In" Type="Int32" />
+      <Parameter Name="num_produit" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierAchat">
+      <Parameter Name="num_achat" Mode="In" Type="Int32" />
+      <Parameter Name="qte" Mode="In" Type="Int32" />
+      <Parameter Name="prix" Mode="In" Type="Int32" />
+      <Parameter Name="modePaiment" Mode="In" Type="String" />
+      <Parameter Name="dateAchat" Mode="In" Type="DateTime" />
+      <Parameter Name="num_produit" Mode="In" Type="Int32" />
+      <Parameter Name="num_fournisseur" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierClient">
+      <Parameter Name="numclient" Mode="In" Type="Int32" />
+      <Parameter Name="CIN" Mode="In" Type="String" />
+      <Parameter Name="Nom" Mode="In" Type="String" />
+      <Parameter Name="Prenom" Mode="In" Type="String" />
+      <Parameter Name="DateNaissance" Mode="In" Type="DateTime" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Adresse" Mode="In" Type="String" />
+      <Parameter Name="Genre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierFacture">
+      <Parameter Name="num_facture" Mode="In" Type="Int32" />
+      <Parameter Name="dateFacture" Mode="In" Type="DateTime" />
+      <Parameter Name="num_vente" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierFournisseur">
+      <Parameter Name="num_fournisseur" Mode="In" Type="Int32" />
+      <Parameter Name="Nom" Mode="In" Type="String" />
+      <Parameter Name="Prenom" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Adresse" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierMesure">
+      <Parameter Name="date_mesure" Mode="In" Type="DateTime" />
+      <Parameter Name="mutualise" Mode="In" Type="String" />
+      <Parameter Name="sphere_mesure" Mode="In" Type="String" />
+      <Parameter Name="cylindre_mesure" Mode="In" Type="String" />
+      <Parameter Name="axe" Mode="In" Type="Int32" />
+      <Parameter Name="type_lentille" Mode="In" Type="String" />
+      <Parameter Name="lentille_mesure" Mode="In" Type="String" />
+      <Parameter Name="hauteur" Mode="In" Type="Double" />
+      <Parameter Name="oeil_mesure" Mode="In" Type="String" />
+      <Parameter Name="num_ophtal" Mode="In" Type="Int32" />
+      <Parameter Name="num_client" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierOphtal">
+      <Parameter Name="num_ophtal" Mode="In" Type="Int32" />
+      <Parameter Name="Nom" Mode="In" Type="String" />
+      <Parameter Name="Prenom" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Adresse" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierProduit">
+      <Parameter Name="num_produit" Mode="In" Type="Int32" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="couleur" Mode="In" Type="String" />
+      <Parameter Name="vision" Mode="In" Type="String" />
+      <Parameter Name="verre" Mode="In" Type="String" />
+      <Parameter Name="traitement" Mode="In" Type="String" />
+      <Parameter Name="taille" Mode="In" Type="String" />
+      <Parameter Name="marque" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ModifierVente">
+      <Parameter Name="num_vente" Mode="In" Type="Int32" />
+      <Parameter Name="DateVente" Mode="In" Type="DateTime" />
+      <Parameter Name="Prix" Mode="In" Type="Int32" />
+      <Parameter Name="Avence" Mode="In" Type="Int32" />
+      <Parameter Name="reste" Mode="In" Type="String" />
+      <Parameter Name="ModePaiment" Mode="In" Type="String" />
+      <Parameter Name="Commentaire" Mode="In" Type="String" />
+      <Parameter Name="num_client" Mode="In" Type="Int32" />
+      <Parameter Name="num_produit" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherAchatNumA" ReturnType="Collection(Gestion_OptiqueModel.RechercherAchatNumA_Result)">
+      <Parameter Name="num_achat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherAchatNumF" ReturnType="Collection(Gestion_OptiqueModel.RechercherAchatNumF_Result)">
+      <Parameter Name="num_fournisseur" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherClientCIN" ReturnType="Collection(Gestion_OptiqueModel.RechercherClientCIN_Result)">
+      <Parameter Name="CIN" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherClientNom" ReturnType="Collection(Gestion_OptiqueModel.RechercherClientNom_Result)">
+      <Parameter Name="nom" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherFactureDate" ReturnType="Collection(Gestion_OptiqueModel.RechercherFactureDate_Result)">
+      <Parameter Name="dateFacture" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherFactureNum" ReturnType="Collection(Gestion_OptiqueModel.RechercherFactureNum_Result)">
+      <Parameter Name="num_facture" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherForunisseurNom" ReturnType="Collection(Gestion_OptiqueModel.RechercherForunisseurNom_Result)">
+      <Parameter Name="nomF" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherMesureDate" ReturnType="Collection(Gestion_OptiqueModel.RechercherMesureDate_Result)">
+      <Parameter Name="date_mesure" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherMesureNum" ReturnType="Collection(Gestion_OptiqueModel.RechercherMesureNum_Result)">
+      <Parameter Name="num_mesure" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rechercherOphtalAdresse" ReturnType="Collection(Gestion_OptiqueModel.rechercherOphtalAdresse_Result)">
+      <Parameter Name="adresse" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherOphtalNom" ReturnType="Collection(Gestion_OptiqueModel.RechercherOphtalNom_Result)">
+      <Parameter Name="nom" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherProduitNum" ReturnType="Collection(Gestion_OptiqueModel.RechercherProduitNum_Result)">
+      <Parameter Name="num_produit" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherProduitType" ReturnType="Collection(Gestion_OptiqueModel.RechercherProduitType_Result)">
+      <Parameter Name="type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherVenteDate" ReturnType="Collection(Gestion_OptiqueModel.RechercherVenteDate_Result)">
+      <Parameter Name="dateVente" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="RechercherVenteNomCli" ReturnType="Collection(Gestion_OptiqueModel.RechercherVenteNomCli_Result)">
+      <Parameter Name="nom_cli" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Gestion_OptiqueModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Gestion_OptiqueModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SupprimerAchat">
+      <Parameter Name="num_achat" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SupprimerClient">
+      <Parameter Name="CIN" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SupprimerFacture">
+      <Parameter Name="num_facture" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SupprimerFournisseur">
+      <Parameter Name="nom" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SupprimerMesure">
+      <Parameter Name="num_client" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SupprimerOphtal">
+      <Parameter Name="nom" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SupprimerProduit">
+      <Parameter Name="num_produit" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SupprimerVente">
+      <Parameter Name="num_vente" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="AfficherAchat_Result">
+    <Property Type="Int32" Name="num_achat" Nullable="false" />
+    <Property Type="Int32" Name="Quantite" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="Date_Achat" Nullable="true" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="NomF" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="AfficherClient_Result">
+    <Property Type="Int32" Name="num_client" Nullable="false" />
+    <Property Type="String" Name="CIN" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="Date_Naissance" Nullable="true" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Genre" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="AfficherFacture_Result">
+    <Property Type="Int32" Name="num_vente" Nullable="false" />
+    <Property Type="Int32" Name="num_facture" Nullable="false" />
+    <Property Type="DateTime" Name="Date_facture" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Avence" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Commentaire" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Marque" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="AfficherFournisseur_Result">
+    <Property Type="Int32" Name="num_fournisseur" Nullable="false" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="AfficherMesure_Result">
+    <Property Type="Int32" Name="num_mesure" Nullable="false" />
+    <Property Type="DateTime" Name="Date_Mesure" Nullable="true" />
+    <Property Type="String" Name="mutualise" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Sphere_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Cylindre_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Axe" Nullable="true" />
+    <Property Type="String" Name="Type_Lentille" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Lentille_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="Double" Name="Hauteur" Nullable="true" />
+    <Property Type="String" Name="Oeil_Mesuré" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Ophtalmologue" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Client" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="AfficherOphtal_Result">
+    <Property Type="Int32" Name="num_ophtal" Nullable="false" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="AfficherProduit_Result">
+    <Property Type="Int32" Name="num_produit" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Couleur" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Vision" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Verre" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Traitement" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Taille" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Marque" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="AfficherVente_Result">
+    <Property Type="Int32" Name="num_vente" Nullable="false" />
+    <Property Type="DateTime" Name="Date_Vente" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Avence" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="reste" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Commentaire" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherAchatNumA_Result">
+    <Property Type="Int32" Name="num_achat" Nullable="false" />
+    <Property Type="Int32" Name="Quantite" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="Date_Achat" Nullable="true" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="NomF" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherAchatNumF_Result">
+    <Property Type="Int32" Name="num_achat" Nullable="false" />
+    <Property Type="Int32" Name="Quantite" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="Date_Achat" Nullable="true" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="NomF" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherClientCIN_Result">
+    <Property Type="Int32" Name="num_client" Nullable="false" />
+    <Property Type="String" Name="CIN" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="Date_Naissance" Nullable="true" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Genre" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherClientNom_Result">
+    <Property Type="Int32" Name="num_client" Nullable="false" />
+    <Property Type="String" Name="CIN" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="Date_Naissance" Nullable="true" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Genre" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherFactureDate_Result">
+    <Property Type="Int32" Name="num_vente" Nullable="false" />
+    <Property Type="Int32" Name="num_facture" Nullable="false" />
+    <Property Type="DateTime" Name="Date_facture" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Avence" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Commentaire" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Marque" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherFactureNum_Result">
+    <Property Type="Int32" Name="num_vente" Nullable="false" />
+    <Property Type="Int32" Name="num_facture" Nullable="false" />
+    <Property Type="DateTime" Name="Date_facture" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Avence" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Commentaire" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Marque" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherForunisseurNom_Result">
+    <Property Type="Int32" Name="num_fournisseur" Nullable="false" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherMesureDate_Result">
+    <Property Type="Int32" Name="num_mesure" Nullable="false" />
+    <Property Type="DateTime" Name="Date_Mesure" Nullable="true" />
+    <Property Type="String" Name="mutualise" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Sphere_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Cylindre_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Axe" Nullable="true" />
+    <Property Type="String" Name="Type_Lentille" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Lentille_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="Double" Name="Hauteur" Nullable="true" />
+    <Property Type="String" Name="Oeil_Mesuré" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherMesureNum_Result">
+    <Property Type="Int32" Name="num_mesure" Nullable="false" />
+    <Property Type="DateTime" Name="Date_Mesure" Nullable="true" />
+    <Property Type="String" Name="mutualise" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Sphere_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Cylindre_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="Axe" Nullable="true" />
+    <Property Type="String" Name="Type_Lentille" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Lentille_Mesure" Nullable="true" MaxLength="30" />
+    <Property Type="Double" Name="Hauteur" Nullable="true" />
+    <Property Type="String" Name="Oeil_Mesuré" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="rechercherOphtalAdresse_Result">
+    <Property Type="Int32" Name="num_ophtal" Nullable="false" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherOphtalNom_Result">
+    <Property Type="Int32" Name="num_ophtal" Nullable="false" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Prenom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Adresse" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherProduitNum_Result">
+    <Property Type="Int32" Name="num_produit" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Couleur" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Vision" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Verre" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Traitement" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Taille" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Marque" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherProduitType_Result">
+    <Property Type="Int32" Name="num_produit" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Couleur" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Vision" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Verre" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Traitement" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Taille" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Marque" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherVenteDate_Result">
+    <Property Type="Int32" Name="num_vente" Nullable="false" />
+    <Property Type="DateTime" Name="Date_Vente" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Avence" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="reste" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Commentaire" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RechercherVenteNomCli_Result">
+    <Property Type="Int32" Name="num_vente" Nullable="false" />
+    <Property Type="DateTime" Name="Date_Vente" Nullable="true" />
+    <Property Type="Int32" Name="Prix" Nullable="true" />
+    <Property Type="String" Name="Avence" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="reste" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Mode_Paiment" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Commentaire" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Nom" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
